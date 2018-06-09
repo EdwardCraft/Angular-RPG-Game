@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CharacterOptions } from '../../models/character-options';
+import { GameControllerService } from '../../services/game-controller.service';
 
 @Component({
 	selector: "character-creation-component",
@@ -8,6 +9,9 @@ import { CharacterOptions } from '../../models/character-options';
 })
 
 export class CharacterComponent{
+
+	constructor(private gameControllerService: GameControllerService){};
+
 	character = {
 		race: '--Choose--',
 		class: '--Choose--',
@@ -52,7 +56,7 @@ export class CharacterComponent{
 			return;
 		}
 
-		console.log(this.character);
+		this.gameControllerService.setMainCharacter(this.character);
 	}
 
 

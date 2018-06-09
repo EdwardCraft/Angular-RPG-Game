@@ -10,7 +10,7 @@ import { StartComponent } from './componets/start/start.component';
 import { InvetoryComponent } from './componets/inventory/inventory.component';
 import { FightComponent } from './componets/fight/fight.component';
 import { CharacterComponent } from './componets/character-creation/character-creation.component';
-
+import { GameControllerService } from './services/game-controller.service';
 
 
 const routes: Routes = [
@@ -35,7 +35,9 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    GameControllerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
