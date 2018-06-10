@@ -62,11 +62,11 @@ export class GameControllerService {
 		this.currentChapter.isSucced.forEach(reward => {
 			switch (reward) {
 				case SuccessOptions.rewardExperience:
-					messages.push("Each menber of the party received ${this.currentChapter.rewards.experience} experience.");
+					messages.push(`Each menber of the party received ${this.currentChapter.rewards.experience}. experience.`);
 					this.heroParty.forEach(hero => {
 						hero.experience +=  this.currentChapter.rewards.experience;
 						if(hero.experience >= ExperienceToLevel[hero.level]){
-							messages.push('${hero.name} leveled up! Upgrade their stats on the inventory screen.');
+							messages.push(`${hero.name} leveled up! Upgrade their stats on the inventory screen.`);
 							hero.levelUp();
 						}
 					});
@@ -75,9 +75,9 @@ export class GameControllerService {
 					messages.push('You received the following equipment: ');
 					this.currentChapter.rewards.equipment.forEach(equipment => {
 						if(equipment instanceof Armor) {
-							messages.push('${equipment.name} -- Attack Barrier Bonus: ${equipment.attackBariesBonus}');
+							messages.push(`${equipment.name} -- Attack Barrier Bonus: ${equipment.attackBariesBonus}`);
 						}else {
-							messages.push('${equipment.name} -- Min Damage: ${equipment.minDamage}, Max Damage: ${equipment.maxDamage}');
+							messages.push(`${equipment.name} -- Min Damage: ${equipment.minDamage}, Max Damage: ${equipment.maxDamage}`);
 						}
 
 						this.partyInventory.push(equipment);
@@ -86,10 +86,10 @@ export class GameControllerService {
 				case SuccessOptions.addHeroToParty:
 					let newHero: Hero = this.currentChapter.rewards.newHero;
 					if(this.heroParty.length < 3) {
-						messages.push('A new hero joined the party Combo Amigos! ${newHero.name} - ${newHero.characterRole} - ${newHero.level}');
+						messages.push(`A new hero joined the party Combo Amigos! ${newHero.name} - ${newHero.characterRole} - ${newHero.level}`);
 						this.heroParty.push(newHero);
 					}else {
-						messages.push('A new Hero is available to joined the party Combo Amigos! ${newHero.name} - ${newHero.characterRole} - ${newHero.level}');
+						messages.push(`A new Hero is available to joined the party Combo Amigos! ${newHero.name} - ${newHero.characterRole} - ${newHero.level}`);
 						this.availableHeroes.push(newHero);
 					}
 					break;

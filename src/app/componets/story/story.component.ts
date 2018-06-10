@@ -29,7 +29,7 @@ export class StoryComponent{
 			return;
 		}
 
-		this.displayMessage = 'You decide to $(action).';
+		this.displayMessage = `You decide to $(action).`;
 		setTimeout(() =>{
 			switch (action) {
 				case CharacterAction.attack:
