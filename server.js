@@ -8,7 +8,7 @@ const app = express();
 app.set('port', (process.env.PORT || 8080));
 
 //app.use(express.static(__dirname + '/dist'));
-app.use(express.static(path.resolve(__dirname,'src')))
+app.use(express.static(path.resolve(__dirname,'src/angular-rpg')))
 
 app.get('/', function(req,res) {   
 	res.sendFile(path.join(__dirname+'/index.html'));
